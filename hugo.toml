@@ -1,0 +1,17 @@
+baseURL = "https://hly1204.github.io/myblog"
+languageCode = 'zh-cn'
+title = "hly1204's blog"
+theme = "github-style"
+pygmentsCodeFences = true
+pygmentsUseClasses = true
+
+[params]
+  author = "hly1204"
+  lastmod = true
+  favicon = "images/github-mark.png"
+  headerIcon = "images/github-mark-white.png"
+  avatar = "images/icon.png"
+  location = "China"
+
+[frontmatter]
+  lastmod = ["lastmod", ":fileModTime", ":default"]
