@@ -13,5 +13,9 @@ pygmentsUseClasses = true
   avatar = "images/icon.png"
   location = "Shanghai, China"
 
+  [[params.links]]
+    title = "Link"
+    href = "https://github.com/hly1204"
+
 [frontmatter]
   lastmod = ["lastmod", ":fileModTime", ":default"]
