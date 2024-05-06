@@ -14,8 +14,9 @@ pygmentsUseClasses = true
   location = "Shanghai, China"
 
   [[params.links]]
-    title = "Link"
+    title = "GitHub"
     href = "https://github.com/hly1204"
+    icon = "images/github-mark.png"
 
 [frontmatter]
   lastmod = ["lastmod", ":fileModTime", ":default"]
