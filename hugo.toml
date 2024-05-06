@@ -11,7 +11,7 @@ pygmentsUseClasses = true
   favicon = "images/github-mark.png"
   headerIcon = "images/github-mark-white.png"
   avatar = "images/icon.png"
-  location = "China"
+  location = "Shanghai, China"
 
 [frontmatter]
   lastmod = ["lastmod", ":fileModTime", ":default"]
