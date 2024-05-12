@@ -9,6 +9,7 @@ pygmentsUseClasses = true
   author = "hly1204"
   lastmod = true
   url = "https://hly1204.github.io/myblog"
+  favicon = "https://hly1204.github.io/myblog/images/icon.png"
   headerIcon = "https://hly1204.github.io/myblog/images/github-mark-white.png"
   avatar = "https://hly1204.github.io/myblog/images/icon.png"
   location = "Shanghai, China"
