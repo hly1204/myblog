@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <script type="application/javascript" src='https://hly1204.github.io/myblog/js/theme-mode.js'></script>
+    <link rel="stylesheet" href='https://hly1204.github.io/myblog/css/frameworks.min.css' />
+    <link rel="stylesheet" href='https://hly1204.github.io/myblog/css/github.min.css' />
+    <link rel="stylesheet" href='https://hly1204.github.io/myblog/css/github-style.css' />
+    <link rel="stylesheet" href='https://hly1204.github.io/myblog/css/light.css' />
+    <link rel="stylesheet" href='https://hly1204.github.io/myblog/css/dark.css' />
+    <link rel="stylesheet" href='https://hly1204.github.io/myblog/css/syntax.css' />
+    <title>再谈 Bostan–Mori 算法 - hly1204&#39;s blog</title>
+    
+    <link rel="icon" type="image/x-icon" href='https://hly1204.github.io/myblog/images/icon.png'>
+    
+    <meta name="theme-color" content="#1e2327">
+
+    
+    <meta name="description"
+  content="复习一下 Bostan–Mori 算法" />
+<meta name="keywords"
+  content='' />
+<meta name="robots" content="noodp" />
+<link rel="canonical" href="https://hly1204.github.io/myblog/post/bostan_mori/" />
+
+
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="再谈 Bostan–Mori 算法 - hly1204&#39;s blog" />
+<meta name="twitter:description"
+  content="复习一下 Bostan–Mori 算法" />
+<meta name="twitter:site" content="https://hly1204.github.io/myblog/" />
+<meta name="twitter:creator" content="" />
+<meta name="twitter:image"
+  content="https://hly1204.github.io/myblog/">
+
+
+<meta property="og:type" content="article" />
+<meta property="og:title" content="再谈 Bostan–Mori 算法 - hly1204&#39;s blog">
+<meta property="og:description"
+  content="复习一下 Bostan–Mori 算法" />
+<meta property="og:url" content="https://hly1204.github.io/myblog/post/bostan_mori/" />
+<meta property="og:site_name" content="再谈 Bostan–Mori 算法" />
+<meta property="og:image"
+  content="https://hly1204.github.io/myblog/">
+<meta property="og:image:width" content="2048">
+<meta property="og:image:height" content="1024">
+
+<meta property="article:published_time" content="2024-05-13 19:11:17 &#43;0800 &#43;0800" />
+
+
+
+
+
+
+
+
+
+
+
+</head>
+
+<body>
+  <div style="position: relative">
+  <header class="Header js-details-container Details px-3 px-md-4 px-lg-5 flex-wrap flex-md-nowrap open Details--on">
+    <div class="Header-item mobile-none" style="margin-top: -4px; margin-bottom: -4px;">
+      <a class="Header-link" href="https://hly1204.github.io/myblog/">
+        <img class="octicon" height="32" width="32" src="https://hly1204.github.io/myblog/images/github-mark-white.png">
+      </a>
+    </div>
+    <div class="Header-item d-md-none">
+      <button class="Header-link btn-link js-details-target" type="button"
+        onclick="document.querySelector('#header-search').style.display = document.querySelector('#header-search').style.display == 'none'? 'block': 'none'">
+        <img height="24" class="octicon octicon-three-bars" width="24" src="https://hly1204.github.io/myblog/images/github-mark-white.png">
+      </button>
+    </div>
+    <div style="display: none;" id="header-search"
+      class="Header-item Header-item--full flex-column flex-md-row width-full flex-order-2 flex-md-order-none mr-0 mr-md-3 mt-3 mt-md-0 Details-content--hidden-not-important d-md-flex">
+      <div
+        class="Header-search header-search flex-auto js-site-search position-relative flex-self-stretch flex-md-self-auto mb-3 mb-md-0 mr-0 mr-md-3 scoped-search site-scoped-search js-jump-to">
+        <div class="position-relative">
+          <form target="_blank" action="https://www.google.com/search" accept-charset="UTF-8" method="get"
+            autocomplete="off">
+            <label
+              class="Header-search-label form-control input-sm header-search-wrapper p-0 js-chromeless-input-container header-search-wrapper-jump-to position-relative d-flex flex-justify-between flex-items-center">
+              <input type="text"
+                class="Header-search-input form-control input-sm header-search-input jump-to-field js-jump-to-field js-site-search-focus js-site-search-field is-clearable"
+                name="q" value="" placeholder="Search" autocomplete="off">
+              <input type="hidden" name="q" value="site:https://hly1204.github.io/myblog/">
+            </label>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <div class="Header-item Header-item--full flex-justify-center d-md-none position-relative">
+      <a class="Header-link " href="https://hly1204.github.io/myblog/">
+        <img class="octicon octicon-mark-github v-align-middle" height="32" width="32" src="https://hly1204.github.io/myblog/images/github-mark-white.png">
+      </a>
+    </div>
+    <div class="Header-item" style="margin-right: 0;">
+      <a href="javascript:void(0)" class="Header-link no-select" onclick="switchTheme()">
+        <svg style="fill: var(--color-profile-color-modes-toggle-moon);" class="no-select" viewBox="0 0 16 16"
+          version="1.1" width="16" height="16">
+          <path fill-rule="evenodd" clip-rule="evenodd"
+            d="M4.52208 7.71754C7.5782 7.71754 10.0557 5.24006 10.0557 2.18394C10.0557 1.93498 10.0392 1.68986 10.0074 1.44961C9.95801 1.07727 10.3495 0.771159 10.6474 0.99992C12.1153 2.12716 13.0615 3.89999 13.0615 5.89383C13.0615 9.29958 10.3006 12.0605 6.89485 12.0605C3.95334 12.0605 1.49286 10.001 0.876728 7.24527C0.794841 6.87902 1.23668 6.65289 1.55321 6.85451C2.41106 7.40095 3.4296 7.71754 4.52208 7.71754Z">
+          </path>
+        </svg>
+      </a>
+    </div>
+  </header>
+</div>
+
+  
+<div>
+  <main>
+    <div class="gisthead pagehead bg-gray-light pb-0 pt-3 mb-4">
+      <div class="px-0">
+        <div class="mb-3 d-flex px-3 px-md-3 px-lg-5">
+          <div class="flex-auto min-width-0 width-fit mr-3">
+            <div class="d-flex">
+              <div class="d-none d-md-block">
+                <a class="avatar mr-2 flex-shrink-0" href="https://hly1204.github.io/myblog/">
+                  <img class=" avatar-user"
+                    src="https://hly1204.github.io/myblog/images/icon.png"
+                    width="32" height="32"></a>
+              </div>
+              <div class="d-flex flex-column">
+                <h1 class="break-word f3 text-normal mb-md-0 mb-1">
+                  <span class="author">
+                    <a href="https://hly1204.github.io/myblog/">hly1204</a>
+                  </span>
+                  <span class="path-divider">/</span>
+                  <strong class="css-truncate css-truncate-target mr-1" style="max-width: 410px">
+                    <a href="https://hly1204.github.io/myblog/post/bostan_mori/">再谈 Bostan–Mori 算法</a>
+                  </strong>
+                </h1>
+                <div class="note m-0">
+                  Created <relative-time datetime="Mon, 13 May 2024 19:11:17 &#43;0800"
+                    class="no-wrap">
+                    Mon, 13 May 2024 19:11:17 &#43;0800</relative-time>
+
+                  
+                  <span class="file-info-divider"></span>
+                  Modified <relative-time datetime="Tue, 14 May 2024 16:34:11 &#43;0000"
+                    class="no-wrap">
+                    Tue, 14 May 2024 16:34:11 &#43;0000</relative-time>
+                  
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container-lg px-3 new-discussion-timeline">
+      <div class="repository-content gist-content">
+        <div>
+          <div class="js-gist-file-update-container js-task-list-container file-box">
+            <div id="file-pytest" class="file my-2">
+              <div id="post-header" class="file-header d-flex flex-md-items-center flex-items-start sticky-header" style="z-index: 2">
+                <div class="file-info d-flex flex-md-items-center flex-items-start flex-order-1 flex-auto">
+                  <div class="text-mono f6 flex-auto pr-3 flex-order-2 flex-md-order-1 mt-2 mt-md-0">
+                    
+                    <summary id="toc-toggle" onclick="clickToc()" class="btn btn-octicon m-0 mr-2 p-2">
+                      <svg aria-hidden="true" viewBox="0 0 16 16" height="16" width="16" class="octicon octicon-list-unordered">
+                        <path fill-rule="evenodd" d="M2 4a1 1 0 100-2 1 1 0 000 2zm3.75-1.5a.75.75 0 000 1.5h8.5a.75.75 0 000-1.5h-8.5zm0 5a.75.75 0 000 1.5h8.5a.75.75 0 000-1.5h-8.5zm0 5a.75.75 0 000 1.5h8.5a.75.75 0 000-1.5h-8.5zM3 8a1 1 0 11-2 0 1 1 0 012 0zm-1 6a1 1 0 100-2 1 1 0 000 2z"></path>
+                      </svg>
+                    </summary>
+                    <details-menu class="SelectMenu" id="toc-details" style="display: none;">
+                      <div class="SelectMenu-modal rounded-3 mt-1" style="max-height: 340px;">
+                        <div class="SelectMenu-list SelectMenu-list--borderless p-2" style="overscroll-behavior: contain;" id="toc-list">
+                        </div>
+                      </div>
+                    </details-menu>
+                      1727 Words
+                    
+
+                  </div>
+                  <div class="file-actions flex-order-2 pt-0">
+                    
+                  </div>
+                </div>
+              </div>
+
+
+              <div class="Box-body px-5 pb-5" style="z-index: 1">
+                <article class="markdown-body entry-content container-lg"><h1 id="再谈-bostanmori-算法">再谈 Bostan–Mori 算法</h1>
+<p>Bostan–Mori 算法可以快速完成下面的求算。如果没有特殊指定，我们一般讨论有理函数和形式幂级数或形式 Laurent 级数。</p>
+<p>反形式 Laurent 级数在这里可以帮助我们简化一些理解。</p>
+<p>Elegia（李白天）指出论文中的 MSB-优先算法本质为 LSB-优先算法的转置，如果熟悉转置原理，也可以以此理解并且将优化后的 LSB-优先算法机械化的转置得到优化后的 MSB-优先算法，这比直接考虑优化更简单。</p>
+<p>我们从头介绍这个算法。</p>
+<h2 id="frac1qxbmodxn">$\frac{1}{Q(x)}\bmod{x^n}$</h2>
+<p>先从形式幂级数的乘法逆元开始，其中 $Q(x)\in\mathbb{C}\left\lbrack\left\lbrack x\right\rbrack\right\rbrack$，那么</p>
+<p>$$
+\frac{1}{Q(x)}\bmod{x^n}=\frac{1}{Q(x)Q(-x)}\cdot Q(-x)\bmod{x^n}
+$$</p>
+<p>令 $V(x^2)=Q(x)Q(-x)$ 那么只需求出</p>
+<p>$$
+\frac{1}{V(x)}\bmod{x^{\left\lceil n/2\right\rceil}}
+$$</p>
+<p>问题变为原来的一半，简单分析所需要的 FFT 次数为递归最外层的两倍：加上优化之后可以做到 $12\mathsf{E}(n)$。传统的 Newton 法简单优化之后可以做到 $10\mathsf{E}(n)$。我不清楚能否做的至少一样好。</p>
+<h3 id="qxq-xqmathrmixq-mathrmix">$Q(x)Q(-x)Q(\mathrm{i}x)Q(-\mathrm{i}x)$</h3>
+<p>这样做可以将问题进一步缩小，但是付出的代价反而变得更高，仔细思考这其实就是我们在下一次中做的事情。虽然这没有意义，但是仍然告诉我们存在 Radix-3 FFT 也方便的写法。</p>
+<h2 id="leftlbrack-xkrightrbrackfracpxqx">$\left\lbrack x^k\right\rbrack\frac{P(x)}{Q(x)}$</h2>
+<p>为了求算 C-recursive 数列的一项，我们有其递推式和初值，那么就可以写出数列的有理函数表示 $P(x),Q(x)\in\mathbb{C}\left\lbrack x\right\rbrack$ 且 $Q(x)\neq 0$，然后使用 Bostan–Mori 算法，考虑</p>
+<p>$$
+\frac{P(x)}{Q(x)}=\frac{P(x)Q(-x)}{Q(x)Q(-x)}=\frac{U_0(x^2)+xU_1(x^2)}{V(x^2)}
+$$</p>
+<p>那么</p>
+<p>$$
+\left\lbrack x^k\right\rbrack\dfrac{P(x)}{Q(x)}=\left\lbrack x^{\left\lfloor k/2\right\rfloor}\right\rbrack \frac{U_{k\bmod{2}}(x)}{V(x)}
+$$</p>
+<p>我们付出两次多项式乘法的代价将 $k$ 变为原先的一半。</p>
+<p><strong>优化</strong>：考虑倍长 DFT 点值和取奇偶项的方法（这在原论文中有详细描述，如果熟悉 FFT 算法，会发现倍长 DFT 点值的算法其实就是 Twisted FFT 的一步：对 $f(\zeta x)$ 求 DFT 点值；取奇偶则是考虑（Radix-2 FFT 求出的）DFT 的点值一定是 $f(1),f(-1),f(\mathrm{i}),f(-\mathrm{i}),&hellip;$ 这样 <strong>成对</strong> 出现）。</p>
+<h2 id="leftlbrack-xleftlbrack-lrrightrightrbrackfracpxqx">$\left\lbrack x^{\left\lbrack L,R\right)}\right\rbrack\frac{P(x)}{Q(x)}$</h2>
+<p>我们先考虑更简单的问题：</p>
+<p>$$
+\left\lbrack x^{\left\lbrack L,R\right)}\right\rbrack\frac{1}{Q(x)}=\left\lbrack x^{\left\lbrack L,R\right)}\right\rbrack\frac{1}{Q(x)Q(-x)}\cdot Q(-x)
+$$</p>
+<p>我们需要求出 $\left\lbrack x^{\left\lbrack L-\deg{Q},R\right)}\right\rbrack\dfrac{1}{Q(x)Q(-x)}$ 然后作一次乘法并取出 $x^L,\dots ,x^{R-1}$ 的系数。令 $V(x^2)=Q(x)Q(-x)$ 那么我们只需求出</p>
+<p>$$
+\left\lbrack x^{\left\lbrack \left\lceil\frac{L-\deg{Q}}{2}\right\rceil,\left\lceil\frac{R}{2}\right\rceil\right)}\right\rbrack\frac{1}{V(x)}
+$$</p>
+<p>就可以还原出 $\left\lbrack x^{\left\lbrack L-\deg{Q},R\right)}\right\rbrack\dfrac{1}{Q(x)Q(-x)}$。那么我们只需求出 $\left\lbrack x^{\left\lbrack L-\deg{P},R\right)}\right\rbrack\dfrac{1}{Q(x)}$ 再和 $P(x)$ 作一次乘法即可求出 $\left\lbrack x^{\left\lbrack L,R\right)}\right\rbrack\frac{P(x)}{Q(x)}$。</p>
+<p>上面的算法虽然已经可以工作，但是每一次的递归的时间复杂度与 $R-L$ 相关，我们希望能至少在递归求算时摆脱 $R-L$，更具体的，我们先考虑求算 $\left\lbrack x^{\left\lbrack L,L+\deg Q+1\right)}\right\rbrack \dfrac{1}{Q(x)}$，考虑</p>
+<p>$$
+\left\lbrack x^{\left\lbrack L,L+\deg Q+1\right)}\right\rbrack \frac{1}{Q(x)}=\left\lbrack x^{\left\lbrack L,L+\deg Q+1\right)}\right\rbrack \dfrac{1}{Q(x)Q(-x)}\cdot Q(-x)
+$$</p>
+<p>那么我们需要求出</p>
+<p>$$
+\left\lbrack x^{\left\lbrack L-\deg Q,L+\deg Q+1\right)}\right\rbrack \dfrac{1}{Q(x)Q(-x)}
+$$</p>
+<p>那么对于 $V(x^2)=Q(x)Q(-x)$ 而言，我们只需求出</p>
+<p>$$
+\left\lbrack x^{\left\lbrack \left\lceil \frac{L-\deg Q}{2}\right\rceil,\left\lceil \frac{L+\deg Q+1}{2}\right\rceil\right)}\right\rbrack \frac{1}{V(x)}
+$$</p>
+<p>这是因为</p>
+<p>$$
+\left\lbrack x^{k}\right\rbrack\dfrac{1}{Q(x)Q(-x)}=
+\begin{cases}
+\left\lbrack x^{k/2}\right\rbrack\dfrac{1}{V(x)},&amp;\text{if }k\equiv 0\pmod{2}, \\
+0,&amp;\text{otherwise}.
+\end{cases}
+$$</p>
+<p>我们知道 $L+\deg(Q)$ 和 $L-\deg(Q)$ 的奇偶性是一样的，所以</p>
+<p>$$
+\left\lceil \frac{L+\deg Q+1}{2}\right\rceil -\left\lceil \frac{L-\deg Q}{2}\right\rceil =
+\begin{cases}
+\deg Q+1,&amp;\text{if }L+\deg Q\equiv 0\pmod{2}, \\
+\deg Q,&amp;\text{otherwise}.
+\end{cases}
+$$</p>
+<p>这样我们可以写出伪代码</p>
+<p>$$
+\begin{array}{ll}
+&amp;\textbf{Algorithm }\operatorname{Slice-CoefficientsA}(Q,L)\text{:} \\
+&amp;\textbf{Input}\text{: }Q(x)\in\mathbb{C}\left\lbrack x\right\rbrack,L\in\mathbb{Z}\text{.} \\
+&amp;\textbf{Output}\text{: }\left\lbrack x^{\left\lbrack L,L+\deg Q+1\right)}\right\rbrack Q(x)^{-1}\text{.} \\
+1&amp;\textbf{if }L\leq 0\textbf{ then return }\left\lbrack x^{\left\lbrack L,L+\deg Q+1\right)}\right\rbrack Q(x)^{-1} \\
+&amp;\text{Use other algorithm to compute }Q(x)^{-1} \\
+2&amp;V(x^2)\gets Q(x)Q(-x) \\
+3&amp;k\gets \left\lceil \frac{L-\deg Q}{2}\right\rceil \\
+4&amp;(t_k,\dots ,t_{k+\deg Q})\gets \operatorname{Slice-CoefficientsA}\left(V,k\right) \\
+5&amp;T(x)\gets x^{(L-\deg Q)\bmod{2}}\sum_{j=0}^{\deg Q}t_{j+k}x^{2j} \\
+6&amp;\textbf{return }\left\lbrack x^{\left\lbrack \deg Q,2\deg Q+1\right)}\right\rbrack T(x)Q(-x)
+\end{array}
+$$</p>
+<p>注意当 $\deg(Q)=0$ 时这个算法会死循环，我们特殊处理即可（实际上我们也不会采用 $\deg Q+1$ 作为切片的长度，而是用 $2^\mathbb{N}$）。</p>
+<p><strong>优化</strong>：对于 $V(x)$ 我们可以保持其 DFT 点值的形式传递，然后在下一次使用倍长点值的算法，对于 $T(x)$ 因为它是奇/偶函数，所以 DFT 点值只需要求一半，乘法可以利用循环卷积以及返回值可以只取高位的 DFT 点值。</p>
+<h2 id="扩展-c-recursive-递推数列">扩展 C-recursive 递推数列</h2>
+<p>这个问题是我们知道 $Q(x)$ 本身和 $Q(x)^{-1}$ 的一部分连续的系数比如 $\left\lbrack x^{\left\lbrack L,L+\deg Q\right)}\right\rbrack Q(x)^{-1}$ 和 $L\geq 0$，我们希望求出 $\left\lbrack x^{\left\lbrack L+\deg Q,L+2\deg Q\right)}\right\rbrack Q(x)^{-1}$，这等价于我们要求某个 $P(x)$ 且 $\deg P\lt \deg Q$ 使得 $\dfrac{P(x)}{Q(x)}$ 的前 $\deg Q$ 项与 $\left\lbrack x^{\left\lbrack L,L+\deg Q\right)}\right\rbrack Q(x)^{-1}$ 相同。简单来说：递推关系（有理函数的分母）是不变的，我们所做的只是更换初值（有理函数的分子）。</p>
+<p>具体的，考虑</p>
+<p>$$
+\frac{P(x)}{Q(x)}=\sum_{j\geq 0}a_jx^j
+$$</p>
+<p>我们现在希望将递推前进 $d$ 项，那么就是</p>
+<p>$$
+\frac{U(x)}{Q(x)}=\sum_{j\geq d}a_jx^{j-d}=\frac{P(x)}{Q(x)x^d}-\frac{Q(x)\sum_{j=0}^{d-1}a_jx^j}{Q(x)x^d}
+$$</p>
+<h3 id="xkbmodqx">$x^k\bmod{Q(x)}$</h3>
+<p>我们可以用上面的算法来求算 $x^k\bmod{Q(x)}$，这需要我们意识到 Euclid 除法（带余除法）是在反形式 Laurent 级数环 $\mathbb{C}((x^{-1}))$ 上计算乘法逆元和乘法。例如我们熟悉的 $a(x)$ 除以 $b(x)$（设 $\deg a\geq \deg b$ 且 $b(x)\neq 0$）在 $\mathbb{C}((x^{-1}))$ 上有</p>
+<p>$$
+\frac{a(x)}{b(x)}=q(x)+\frac{r(x)}{b(x)}
+$$</p>
+<p>其中 $b(x)^{-1}=\sum_{j\geq\deg b}p_jx^{-j}$ 此时 $\deg \left(b^{-1}\right)=\left(\deg b\right)^{-1}$ 是对于多项式环上 <strong>度数</strong> 定义的自然扩展。而多项式 $q(x)$ 是 $a(x)$ 除以 $b(x)$ 的商且 $\deg q=\deg a-\deg b$ 然后多项式 $r(x)$ 就是 $a(x)$ 除以 $b(x)$ 的余数。</p>
+<p>不妨认为 $q(x)$ 是『<strong>整数</strong>』部分，而 $\dfrac{r(x)}{b(x)}$ 就是『<strong>小数</strong>』部分（类比于整数除法），并且多项式没有令人头疼的『<strong>进位</strong>』。</p>
+<p>那么 $x^k\bmod{Q(x)}$ 就是在反形式 Laurent 级数环上求出 $\left\lbrack x^{\left\lbrack -\deg Q,0\right)}\right\rbrack\dfrac{x^k}{Q(x)}=\left\lbrack x^{\left\lbrack -\deg Q-k,-k\right)}\right\rbrack\dfrac{1}{Q(x)}$ 后再作一次乘法。</p>
+<h1 id="参考文献">参考文献</h1>
+<ol>
+<li>Alin Bostan, Ryuhei Mori. <a href="https://arxiv.org/abs/2008.08822">A Simple and Fast Algorithm for Computing the $N$-th Term of a Linearly Recurrent Sequence</a>.</li>
+<li>Yasunori Kinoshita, Baitian Li. <a href="https://arxiv.org/abs/2404.05177">Power Series Composition in Near-Linear Time</a>.</li>
+</ol>
+</article>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>
+<script type="application/javascript" src='https://hly1204.github.io/myblog/js/toc.js'></script>
+<link rel="stylesheet" href='https://hly1204.github.io/myblog/css/toc.css' />
+
+
+
+  <div class="footer container-xl width-full p-responsive">
+  <div
+    class="position-relative d-flex flex-row-reverse flex-lg-row flex-wrap flex-lg-nowrap flex-justify-center flex-lg-justify-between flex-sm-items-center pt-6 pb-2 mt-6 f6 text-gray border-top border-gray-light ">
+    <a aria-label="Homepage" title="GitHub" class="footer-octicon d-none d-lg-block mr-lg-4" href="https://hly1204.github.io/myblog/">
+      <svg height="24" class="octicon octicon-mark-github" viewBox="0 0 16 16" version="1.1" width="24">
+        <path fill-rule="evenodd"
+          d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z">
+        </path>
+      </svg>
+    </a>
+    <ul class="list-style-none d-flex flex-wrap col-12 flex-justify-center flex-lg-justify-between mb-2 mb-lg-0">
+      
+      <li class="mr-3 mr-lg-0">Theme by <a href='https://github.com/MeiK2333/github-style'>github-style</a></li>
+      
+    </ul>
+  </div>
+  <div class="d-flex flex-justify-center pb-6">
+    <span class="f6 text-gray-light"></span>
+  </div>
+
+
+</div>
+</body>
+
+<script type="application/javascript" src="https://hly1204.github.io/myblog/js/github-style.js"></script>
+
+
+
+<script type="text/javascript" async
+  src="https://cdn.bootcss.com/mathjax/2.7.3/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+        displayMath: [['$$', '$$'], ['\[\[', '\]\]']],
+        processEscapes: true,
+        processEnvironments: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+        TeX: {
+          equationNumbers: { autoNumber: "AMS" },
+          extensions: ["AMSmath.js", "AMSsymbols.js"]
+        }
+      }
+    });
+
+    MathJax.Hub.Queue(function () {
+      
+      
+      
+      var all = MathJax.Hub.getAllJax(), i;
+      for (i = 0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+      }
+    });
+  </script>
+
+<style>
+  code.has-jax {
+    font: inherit;
+    font-size: 100%;
+    background: inherit;
+    border: inherit;
+    color: #515151;
+  }
+</style>
+
+
+</html>

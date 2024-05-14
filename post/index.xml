@@ -1,26 +1,19 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>hly1204&#39;s blog</title>
-    <link>https://hly1204.github.io/myblog/</link>
-    <description>Recent content on hly1204&#39;s blog</description>
+    <title>Posts on hly1204&#39;s blog</title>
+    <link>https://hly1204.github.io/myblog/post/</link>
+    <description>Recent content in Posts on hly1204&#39;s blog</description>
     <generator>Hugo</generator>
     <language>zh-cn</language>
     <lastBuildDate>Tue, 14 May 2024 16:34:11 +0000</lastBuildDate>
-    <atom:link href="https://hly1204.github.io/myblog/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://hly1204.github.io/myblog/post/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>再谈 Bostan–Mori 算法</title>
       <link>https://hly1204.github.io/myblog/post/bostan_mori/</link>
       <pubDate>Mon, 13 May 2024 19:11:17 +0800</pubDate>
       <guid>https://hly1204.github.io/myblog/post/bostan_mori/</guid>
       <description>复习一下 Bostan–Mori 算法</description>
-    </item>
-    <item>
-      <title>README</title>
-      <link>https://hly1204.github.io/myblog/readme/</link>
-      <pubDate>Mon, 06 May 2024 22:54:33 +0800</pubDate>
-      <guid>https://hly1204.github.io/myblog/readme/</guid>
-      <description>不知道写点啥，可能就整理一下以前的一些文章。</description>
     </item>
   </channel>
 </rss>
