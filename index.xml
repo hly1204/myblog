@@ -6,8 +6,15 @@
     <description>Recent content on hly1204&#39;s blog</description>
     <generator>Hugo</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Wed, 15 May 2024 11:10:59 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 12 Jun 2024 16:09:57 +0000</lastBuildDate>
     <atom:link href="https://hly1204.github.io/myblog/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Chirp Z 变换</title>
+      <link>https://hly1204.github.io/myblog/post/czt/</link>
+      <pubDate>Wed, 12 Jun 2024 22:39:13 +0800</pubDate>
+      <guid>https://hly1204.github.io/myblog/post/czt/</guid>
+      <description>学习一下逆 Chirp Z 变换</description>
+    </item>
     <item>
       <title>再谈 Bostan–Mori 算法</title>
       <link>https://hly1204.github.io/myblog/post/bostan_mori/</link>
