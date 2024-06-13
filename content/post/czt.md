@@ -276,6 +276,8 @@ $$
 
 而 $\dbinom{n}{k}_q=\dfrac{\left(1-q\right)\cdots \left(1-q^n\right)}{\left(1-q\right)\cdots \left(1-q^k\right)\cdot \left(1-q\right)\cdots \left(1-q^{n-k}\right)}=\dfrac{s_n}{s_ks\_{n-k}}$。
 
+**备注**：若 $q^n=1$ 不能再使用上式，我们按照定义计算。
+
 # 参考文献
 
 1. 37zigen. [多項式補間：アルゴリズム](https://37zigen.com/lagrange-interpolation/).
