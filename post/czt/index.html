@@ -142,9 +142,9 @@
 
                   
                   <span class="file-info-divider"></span>
-                  Modified <relative-time datetime="Thu, 13 Jun 2024 14:09:02 &#43;0000"
+                  Modified <relative-time datetime="Sun, 23 Jun 2024 04:20:15 &#43;0000"
                     class="no-wrap">
-                    Thu, 13 Jun 2024 14:09:02 &#43;0000</relative-time>
+                    Sun, 23 Jun 2024 04:20:15 &#43;0000</relative-time>
                   
                 </div>
               </div>
@@ -174,7 +174,7 @@
                         </div>
                       </div>
                     </details-menu>
-                      1643 Words
+                      1626 Words
                     
 
                   </div>
@@ -351,18 +351,18 @@ $$</p>
 <p><strong>证明</strong>：设 $r_n(x,a)$ 等于右式，应用上述 $q$-Pascal 递推式，我们有</p>
 <p>$$
 \begin{aligned}
-r_{n+1}(x,a)&amp;=\sum_{k=0}^{n+1}\binom{n+1}{k}_qq^{\binom{k}{2}}x^ka^{n+1-k} \\
-&amp;=\sum_{k=0}^{n+1}\left(\binom{n}{k-1}_q+q^k\binom{n}{k}_q\right)q^{\binom{k}{2}}x^ka^{n+1-k} \\
-&amp;=\sum_{k=1}^{n+1}\binom{n}{k-1}_qq^{\binom{k}{2}}x^ka^{n+1-k}+\sum_{k=0}^{n}\binom{n}{k}_qq^{\binom{k}{2}}\left(qx\right)^ka^{n+1-k} \\
-&amp;=\sum_{j=0}^{n}\binom{n}{j}_qq^{\binom{j+1}{2}}x^{j+1}a^{n-j}+\sum_{j=0}^{n}\binom{n}{j}_qq^{\binom{j}{2}}\left(qx\right)^ja^{n+1-j}
+r_{n+1}(x,a)&amp;=\sum _ {k=0}^{n+1}\binom{n+1}{k}_qq^{\binom{k}{2}}x^ka^{n+1-k} \\
+&amp;=\sum _ {k=0}^{n+1}\left(\binom{n}{k-1}_q+q^k\binom{n}{k}_q\right)q^{\binom{k}{2}}x^ka^{n+1-k} \\
+&amp;=\sum _ {k=1}^{n+1}\binom{n}{k-1}_qq^{\binom{k}{2}}x^ka^{n+1-k}+\sum _ {k=0}^{n}\binom{n}{k}_qq^{\binom{k}{2}}\left(qx\right)^ka^{n+1-k} \\
+&amp;=\sum _ {j=0}^{n}\binom{n}{j}_qq^{\binom{j+1}{2}}x^{j+1}a^{n-j}+\sum _ {j=0}^{n}\binom{n}{j}_qq^{\binom{j}{2}}\left(qx\right)^ja^{n+1-j}
 \end{aligned}
 $$</p>
 <p>第三行中我们使用 $\dbinom{n}{-1}_q=\dbinom{n}{n+1}_q=0$，前面我们提到对于 $j\in\mathbb{N}$ 有 $\dbinom{j+1}{2}=\dbinom{j}{2}+j$，那么</p>
 <p>$$
 \begin{aligned}
-r_{n+1}(x,a)&amp;=\sum_{j=0}^{n}\binom{n}{j}_qq^{\binom{j}{2}}q^jx^{j+1}a^{n-j}+\sum_{j=0}^{n}\binom{n}{j}_qq^{\binom{j}{2}}\left(qx\right)^ja^{n+1-j} \\
-&amp;=\sum_{j=0}^{n}\binom{n}{j}_qq^{\binom{j}{2}}\left(qx\right)^ja^{n-j}x+\sum_{j=0}^{n}\binom{n}{j}_qq^{\binom{j}{2}}\left(qx\right)^ja^{n+1-j} \\
-&amp;=\sum_{j=0}^{n}\binom{n}{j}_qq^{\binom{j}{2}}\left(qx\right)^ja^{n-j}(x+a) \\
+r_{n+1}(x,a)&amp;=\sum _ {j=0}^{n}\binom{n}{j}_qq^{\binom{j}{2}}q^jx^{j+1}a^{n-j}+\sum _ {j=0}^{n}\binom{n}{j}_qq^{\binom{j}{2}}\left(qx\right)^ja^{n+1-j} \\
+&amp;=\sum _ {j=0}^{n}\binom{n}{j}_qq^{\binom{j}{2}}\left(qx\right)^ja^{n-j}x+\sum _ {j=0}^{n}\binom{n}{j}_qq^{\binom{j}{2}}\left(qx\right)^ja^{n+1-j} \\
+&amp;=\sum _ {j=0}^{n}\binom{n}{j}_qq^{\binom{j}{2}}\left(qx\right)^ja^{n-j}(x+a) \\
 &amp;=(a+x)r_n(qx,a)
 \end{aligned}
 $$</p>
@@ -383,7 +383,7 @@ M(x)&amp;=\prod_{j=0}^{n-1}\left(x-q^j\right) \\
 &amp;=\sum_{k=0}^n\binom{n}{k}_qq^{\binom{k}{2}}(-1)^kx^{n-k}
 \end{aligned}
 $$</p>
-<p>而 $\dbinom{n}{k}_q=\dfrac{\left(1-q\right)\cdots \left(1-q^n\right)}{\left(1-q\right)\cdots \left(1-q^k\right)\cdot \left(1-q\right)\cdots \left(1-q^{n-k}\right)}=\dfrac{s_n}{s_ks_{n-k}}$。</p>
+<p>而 $\dbinom{n}{k}_q=\dfrac{\left(1-q\right)\cdots \left(1-q^n\right)}{\left(1-q\right)\cdots \left(1-q^k\right)\cdot \left(1-q\right)\cdots \left(1-q^{n-k}\right)}=\dfrac{s_n}{s_ks _ {n-k}}$。</p>
 <p><strong>备注</strong>：若 $q^n=1$ 不能再使用上式，我们按照定义计算。</p>
 <h1 id="参考文献">参考文献</h1>
 <ol>
