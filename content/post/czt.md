@@ -234,10 +234,10 @@ $$
 
 $$
 \begin{aligned}
-r_{n+1}(x,a)&=\sum\_{k=0}^{n+1}\binom{n+1}{k}_qq^{\binom{k}{2}}x^ka^{n+1-k} \\\\
-&=\sum\_{k=0}^{n+1}\left(\binom{n}{k-1}_q+q^k\binom{n}{k}_q\right)q^{\binom{k}{2}}x^ka^{n+1-k} \\\\
-&=\sum\_{k=1}^{n+1}\binom{n}{k-1}_qq^{\binom{k}{2}}x^ka^{n+1-k}+\sum\_{k=0}^{n}\binom{n}{k}_qq^{\binom{k}{2}}\left(qx\right)^ka^{n+1-k} \\\\
-&=\sum\_{j=0}^{n}\binom{n}{j}_qq^{\binom{j+1}{2}}x^{j+1}a^{n-j}+\sum\_{j=0}^{n}\binom{n}{j}_qq^{\binom{j}{2}}\left(qx\right)^ja^{n+1-j} 
+r_{n+1}(x,a)&=\sum _ {k=0}^{n+1}\binom{n+1}{k}_qq^{\binom{k}{2}}x^ka^{n+1-k} \\\\
+&=\sum _ {k=0}^{n+1}\left(\binom{n}{k-1}_q+q^k\binom{n}{k}_q\right)q^{\binom{k}{2}}x^ka^{n+1-k} \\\\
+&=\sum _ {k=1}^{n+1}\binom{n}{k-1}_qq^{\binom{k}{2}}x^ka^{n+1-k}+\sum _ {k=0}^{n}\binom{n}{k}_qq^{\binom{k}{2}}\left(qx\right)^ka^{n+1-k} \\\\
+&=\sum _ {j=0}^{n}\binom{n}{j}_qq^{\binom{j+1}{2}}x^{j+1}a^{n-j}+\sum _ {j=0}^{n}\binom{n}{j}_qq^{\binom{j}{2}}\left(qx\right)^ja^{n+1-j} 
 \end{aligned}
 $$
 
@@ -245,9 +245,9 @@ $$
 
 $$
 \begin{aligned}
-r_{n+1}(x,a)&=\sum\_{j=0}^{n}\binom{n}{j}_qq^{\binom{j}{2}}q^jx^{j+1}a^{n-j}+\sum\_{j=0}^{n}\binom{n}{j}_qq^{\binom{j}{2}}\left(qx\right)^ja^{n+1-j} \\\\
-&=\sum\_{j=0}^{n}\binom{n}{j}_qq^{\binom{j}{2}}\left(qx\right)^ja^{n-j}x+\sum\_{j=0}^{n}\binom{n}{j}_qq^{\binom{j}{2}}\left(qx\right)^ja^{n+1-j} \\\\
-&=\sum\_{j=0}^{n}\binom{n}{j}_qq^{\binom{j}{2}}\left(qx\right)^ja^{n-j}(x+a) \\\\
+r_{n+1}(x,a)&=\sum _ {j=0}^{n}\binom{n}{j}_qq^{\binom{j}{2}}q^jx^{j+1}a^{n-j}+\sum _ {j=0}^{n}\binom{n}{j}_qq^{\binom{j}{2}}\left(qx\right)^ja^{n+1-j} \\\\
+&=\sum _ {j=0}^{n}\binom{n}{j}_qq^{\binom{j}{2}}\left(qx\right)^ja^{n-j}x+\sum _ {j=0}^{n}\binom{n}{j}_qq^{\binom{j}{2}}\left(qx\right)^ja^{n+1-j} \\\\
+&=\sum _ {j=0}^{n}\binom{n}{j}_qq^{\binom{j}{2}}\left(qx\right)^ja^{n-j}(x+a) \\\\
 &=(a+x)r_n(qx,a)
 \end{aligned}
 $$
@@ -274,7 +274,7 @@ M(x)&=\prod_{j=0}^{n-1}\left(x-q^j\right) \\\\
 \end{aligned}
 $$
 
-而 $\dbinom{n}{k}_q=\dfrac{\left(1-q\right)\cdots \left(1-q^n\right)}{\left(1-q\right)\cdots \left(1-q^k\right)\cdot \left(1-q\right)\cdots \left(1-q^{n-k}\right)}=\dfrac{s_n}{s_ks\_{n-k}}$。
+而 $\dbinom{n}{k}_q=\dfrac{\left(1-q\right)\cdots \left(1-q^n\right)}{\left(1-q\right)\cdots \left(1-q^k\right)\cdot \left(1-q\right)\cdots \left(1-q^{n-k}\right)}=\dfrac{s_n}{s_ks _ {n-k}}$。
 
 **备注**：若 $q^n=1$ 不能再使用上式，我们按照定义计算。
 
