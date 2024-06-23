@@ -6,8 +6,15 @@
     <description>Recent content on hly1204&#39;s blog</description>
     <generator>Hugo</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Sun, 23 Jun 2024 04:20:15 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 23 Jun 2024 08:43:34 +0000</lastBuildDate>
     <atom:link href="https://hly1204.github.io/myblog/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>友矩阵</title>
+      <link>https://hly1204.github.io/myblog/post/companion_matrix/</link>
+      <pubDate>Sun, 23 Jun 2024 11:53:52 +0800</pubDate>
+      <guid>https://hly1204.github.io/myblog/post/companion_matrix/</guid>
+      <description>简单学习一下友矩阵</description>
+    </item>
     <item>
       <title>Chirp Z 变换</title>
       <link>https://hly1204.github.io/myblog/post/czt/</link>
