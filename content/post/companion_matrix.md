@@ -73,7 +73,7 @@ $$
 \begin{aligned}
 \mathbf{C} _ g&=\begin{bmatrix}B_{x\bmod{g}}&B_{x^2\bmod{g}}&\cdots &B_{x^d\bmod{g}}\end{bmatrix}, \\\\
 \left(\mathbf{C} _ g\right)^2&=\begin{bmatrix}B_{x^2\bmod{g}}&B_{x^3\bmod{g}}&\cdots &B_{x^{d+1}\bmod{g}}\end{bmatrix}, \\\\
-\cdots \\\\
+\vdots \\\\
 \left(\mathbf{C} _ g\right)^k&=\begin{bmatrix}B_{x^k\bmod{g}}&B_{x^{k+1}\bmod{g}}&\cdots &B_{x^{k+d}\bmod{g}}\end{bmatrix}
 \end{aligned}
 $$
