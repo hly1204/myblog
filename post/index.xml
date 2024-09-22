@@ -6,8 +6,15 @@
     <description>Recent content in Posts on hly1204&#39;s blog</description>
     <generator>Hugo</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Sun, 04 Aug 2024 01:59:38 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 22 Sep 2024 14:25:51 +0000</lastBuildDate>
     <atom:link href="https://hly1204.github.io/myblog/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>模平方根</title>
+      <link>https://hly1204.github.io/myblog/post/sqrt_mod/</link>
+      <pubDate>Sat, 21 Sep 2024 13:19:48 +0800</pubDate>
+      <guid>https://hly1204.github.io/myblog/post/sqrt_mod/</guid>
+      <description>简单复习一下 Tonelli–Shanks 算法</description>
+    </item>
     <item>
       <title>友矩阵</title>
       <link>https://hly1204.github.io/myblog/post/companion_matrix/</link>
